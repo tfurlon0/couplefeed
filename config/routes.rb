@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   # DELETE
   get("/delete_check_in/:id_to_remove", { :controller => "check_ins", :action => "destroy_row" })
+  get("/delete_check_in_from_location/:id_to_remove", { :controller => "check_ins", :action => "destroy_row_from_location" })
+  get("/delete_check_in_from_owner/:id_to_remove", { :controller => "check_ins", :action => "destroy_row_from_owner" })
 
   #------------------------------
 
@@ -55,6 +57,9 @@ Rails.application.routes.draw do
 
   # DELETE
   get("/delete_like/:id_to_remove", { :controller => "likes", :action => "destroy_row" })
+  get("/delete_like_from_location/:id_to_remove", { :controller => "likes", :action => "destroy_row_from_location" })
+  get("/delete_like_from_photo/:id_to_remove", { :controller => "likes", :action => "destroy_row_from_photo" })
+  get("/delete_like_from_author/:id_to_remove", { :controller => "likes", :action => "destroy_row_from_author" })
 
   #------------------------------
 
@@ -74,6 +79,9 @@ Rails.application.routes.draw do
 
   # DELETE
   get("/delete_comment/:id_to_remove", { :controller => "comments", :action => "destroy_row" })
+  get("/delete_comment_from_location/:id_to_remove", { :controller => "comments", :action => "destroy_row_from_location" })
+  get("/delete_comment_from_photo/:id_to_remove", { :controller => "comments", :action => "destroy_row_from_photo" })
+  get("/delete_comment_from_author/:id_to_remove", { :controller => "comments", :action => "destroy_row_from_author" })
 
   #------------------------------
 
@@ -93,6 +101,8 @@ Rails.application.routes.draw do
 
   # DELETE
   get("/delete_photo/:id_to_remove", { :controller => "photos", :action => "destroy_row" })
+  get("/delete_photo_from_location/:id_to_remove", { :controller => "photos", :action => "destroy_row_from_location" })
+  get("/delete_photo_from_author/:id_to_remove", { :controller => "photos", :action => "destroy_row_from_author" })
 
   #------------------------------
 

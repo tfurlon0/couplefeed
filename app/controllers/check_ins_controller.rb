@@ -57,6 +57,22 @@ class CheckInsController < ApplicationController
     end
   end
 
+  def destroy_row_from_owner
+    @check_in = CheckIn.find(params.fetch("id_to_remove"))
+
+    @check_in.destroy
+
+    redirect_to("/users/#{@check_in.owner_id}", notice: "CheckIn deleted successfully.")
+  end
+
+  def destroy_row_from_location
+    @check_in = CheckIn.find(params.fetch("id_to_remove"))
+
+    @check_in.destroy
+
+    redirect_to("/locations/#{@check_in.location_id}", notice: "CheckIn deleted successfully.")
+  end
+
   def destroy_row
     @check_in = CheckIn.find(params.fetch("id_to_remove"))
 

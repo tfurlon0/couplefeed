@@ -55,6 +55,30 @@ class LikesController < ApplicationController
     end
   end
 
+  def destroy_row_from_author
+    @like = Like.find(params.fetch("id_to_remove"))
+
+    @like.destroy
+
+    redirect_to("/users/#{@like.author_id}", notice: "Like deleted successfully.")
+  end
+
+  def destroy_row_from_photo
+    @like = Like.find(params.fetch("id_to_remove"))
+
+    @like.destroy
+
+    redirect_to("/photos/#{@like.photo_id}", notice: "Like deleted successfully.")
+  end
+
+  def destroy_row_from_location
+    @like = Like.find(params.fetch("id_to_remove"))
+
+    @like.destroy
+
+    redirect_to("/locations/#{@like.location_id}", notice: "Like deleted successfully.")
+  end
+
   def destroy_row
     @like = Like.find(params.fetch("id_to_remove"))
 
