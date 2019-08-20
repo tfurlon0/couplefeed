@@ -6,6 +6,10 @@ class LocationsController < ApplicationController
   end
 
   def show
+    @check_in = CheckIn.new
+    @like = Like.new
+    @comment = Comment.new
+    @photo = Photo.new
     @location = Location.find(params.fetch("id_to_display"))
 
     render("location_templates/show.html.erb")

@@ -6,6 +6,8 @@ class PhotosController < ApplicationController
   end
 
   def show
+    @like = Like.new
+    @comment = Comment.new
     @photo = Photo.find(params.fetch("id_to_display"))
 
     render("photo_templates/show.html.erb")
@@ -31,6 +33,44 @@ class PhotosController < ApplicationController
       @photo.save
 
       redirect_back(:fallback_location => "/photos", :notice => "Photo created successfully.")
+    else
+      render("photo_templates/new_form_with_errors.html.erb")
+    end
+  end
+
+  def create_row_from_user
+    @photo = Photo.new
+
+    @photo.author_id = params.fetch("author_id")
+    @photo.comments_count = params.fetch("comments_count")
+    @photo.likes_count = params.fetch("likes_count")
+    @photo.location_id = params.fetch("location_id")
+    @photo.caption = params.fetch("caption")
+    @photo.image = params.fetch("image")
+
+    if @photo.valid?
+      @photo.save
+
+      redirect_to("/users/#{@photo.author_id}", notice: "Photo created successfully.")
+    else
+      render("photo_templates/new_form_with_errors.html.erb")
+    end
+  end
+
+  def create_row_from_location
+    @photo = Photo.new
+
+    @photo.author_id = params.fetch("author_id")
+    @photo.comments_count = params.fetch("comments_count")
+    @photo.likes_count = params.fetch("likes_count")
+    @photo.location_id = params.fetch("location_id")
+    @photo.caption = params.fetch("caption")
+    @photo.image = params.fetch("image")
+
+    if @photo.valid?
+      @photo.save
+
+      redirect_to("/locations/#{@photo.location_id}", notice: "Photo created successfully.")
     else
       render("photo_templates/new_form_with_errors.html.erb")
     end

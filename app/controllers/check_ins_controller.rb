@@ -34,6 +34,40 @@ class CheckInsController < ApplicationController
     end
   end
 
+  def create_row_from_user
+    @check_in = CheckIn.new
+
+    @check_in.owner_id = params.fetch("owner_id")
+    @check_in.location_id = params.fetch("location_id")
+    @check_in.image = params.fetch("image")
+    @check_in.caption = params.fetch("caption")
+
+    if @check_in.valid?
+      @check_in.save
+
+      redirect_to("/users/#{@check_in.owner_id}", notice: "CheckIn created successfully.")
+    else
+      render("check_in_templates/new_form_with_errors.html.erb")
+    end
+  end
+
+  def create_row_from_location
+    @check_in = CheckIn.new
+
+    @check_in.owner_id = params.fetch("owner_id")
+    @check_in.location_id = params.fetch("location_id")
+    @check_in.image = params.fetch("image")
+    @check_in.caption = params.fetch("caption")
+
+    if @check_in.valid?
+      @check_in.save
+
+      redirect_to("/locations/#{@check_in.location_id}", notice: "CheckIn created successfully.")
+    else
+      render("check_in_templates/new_form_with_errors.html.erb")
+    end
+  end
+
   def edit_form
     @check_in = CheckIn.find(params.fetch("prefill_with_id"))
 

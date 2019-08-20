@@ -33,6 +33,54 @@ class LikesController < ApplicationController
     end
   end
 
+  def create_row_from_user
+    @like = Like.new
+
+    @like.author_id = params.fetch("author_id")
+    @like.photo_id = params.fetch("photo_id")
+    @like.location_id = params.fetch("location_id")
+
+    if @like.valid?
+      @like.save
+
+      redirect_to("/users/#{@like.author_id}", notice: "Like created successfully.")
+    else
+      render("like_templates/new_form_with_errors.html.erb")
+    end
+  end
+
+  def create_row_from_photo
+    @like = Like.new
+
+    @like.author_id = params.fetch("author_id")
+    @like.photo_id = params.fetch("photo_id")
+    @like.location_id = params.fetch("location_id")
+
+    if @like.valid?
+      @like.save
+
+      redirect_to("/photos/#{@like.photo_id}", notice: "Like created successfully.")
+    else
+      render("like_templates/new_form_with_errors.html.erb")
+    end
+  end
+
+  def create_row_from_location
+    @like = Like.new
+
+    @like.author_id = params.fetch("author_id")
+    @like.photo_id = params.fetch("photo_id")
+    @like.location_id = params.fetch("location_id")
+
+    if @like.valid?
+      @like.save
+
+      redirect_to("/locations/#{@like.location_id}", notice: "Like created successfully.")
+    else
+      render("like_templates/new_form_with_errors.html.erb")
+    end
+  end
+
   def edit_form
     @like = Like.find(params.fetch("prefill_with_id"))
 

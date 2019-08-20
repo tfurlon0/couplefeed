@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   # CREATE
   get("/check_ins/new", { :controller => "check_ins", :action => "new_form" })
   post("/create_check_in", { :controller => "check_ins", :action => "create_row" })
+  post("/create_check_in_from_location", { :controller => "check_ins", :action => "create_row_from_location" })
+  post("/create_check_in_from_user", { :controller => "check_ins", :action => "create_row_from_user" })
 
   # READ
   get("/check_ins", { :controller => "check_ins", :action => "index" })
@@ -46,6 +48,9 @@ Rails.application.routes.draw do
   # CREATE
   get("/likes/new", { :controller => "likes", :action => "new_form" })
   post("/create_like", { :controller => "likes", :action => "create_row" })
+  post("/create_like_from_location", { :controller => "likes", :action => "create_row_from_location" })
+  post("/create_like_from_photo", { :controller => "likes", :action => "create_row_from_photo" })
+  post("/create_like_from_user", { :controller => "likes", :action => "create_row_from_user" })
 
   # READ
   get("/likes", { :controller => "likes", :action => "index" })
@@ -68,6 +73,9 @@ Rails.application.routes.draw do
   # CREATE
   get("/comments/new", { :controller => "comments", :action => "new_form" })
   post("/create_comment", { :controller => "comments", :action => "create_row" })
+  post("/create_comment_from_location", { :controller => "comments", :action => "create_row_from_location" })
+  post("/create_comment_from_photo", { :controller => "comments", :action => "create_row_from_photo" })
+  post("/create_comment_from_user", { :controller => "comments", :action => "create_row_from_user" })
 
   # READ
   get("/comments", { :controller => "comments", :action => "index" })
@@ -90,6 +98,8 @@ Rails.application.routes.draw do
   # CREATE
   get("/photos/new", { :controller => "photos", :action => "new_form" })
   post("/create_photo", { :controller => "photos", :action => "create_row" })
+  post("/create_photo_from_location", { :controller => "photos", :action => "create_row_from_location" })
+  post("/create_photo_from_user", { :controller => "photos", :action => "create_row_from_user" })
 
   # READ
   get("/photos", { :controller => "photos", :action => "index" })

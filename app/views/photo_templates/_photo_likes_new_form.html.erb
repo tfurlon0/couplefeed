@@ -1,0 +1,37 @@
+<!-- Form like start -->
+<form action="/create_like_from_photo" method="post">
+<!-- Form like end -->
+
+  <!-- Label and input for author_id start -->
+  <div class="form-group">
+    <label for="author_id">
+      Author
+    </label>
+
+    <!-- Input for author_id start -->
+    <input type="text" id="author_id" name="author_id" class="form-control" value="<%= @like.author_id %>">
+    <!-- Input for author_id end -->
+  </div>
+  <!-- Label and input for author_id end -->
+
+  <!-- Label and input for photo_id start -->
+  <!-- Input for photo_id start -->
+  <input type="hidden" name="photo_id" value="<%= @photo.id %>">
+  <!-- Input for photo_id end -->
+
+  <!-- Label and input for location_id start -->
+  <div class="form-group">
+    <label for="location_id">
+      Location
+    </label>
+
+    <!-- Input for location_id start -->
+    <input type="text" id="location_id" name="location_id" class="form-control" value="<%= @like.location_id %>">
+    <!-- Input for location_id end -->
+  </div>
+  <!-- Label and input for location_id end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create like
+  </button>
+</form>

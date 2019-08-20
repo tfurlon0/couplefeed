@@ -6,6 +6,10 @@ class UsersController < ApplicationController
   end
 
   def show
+    @check_in = CheckIn.new
+    @like = Like.new
+    @comment = Comment.new
+    @photo = Photo.new
     @user = User.find(params.fetch("id_to_display"))
 
     render("user_templates/show.html.erb")
