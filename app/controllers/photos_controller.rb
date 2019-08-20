@@ -27,7 +27,7 @@ class PhotosController < ApplicationController
     @photo.likes_count = params.fetch("likes_count")
     @photo.location_id = params.fetch("location_id")
     @photo.caption = params.fetch("caption")
-    @photo.image = params.fetch("image")
+    @photo.image = params.fetch("image") if params.key?("image")
 
     if @photo.valid?
       @photo.save
@@ -46,7 +46,7 @@ class PhotosController < ApplicationController
     @photo.likes_count = params.fetch("likes_count")
     @photo.location_id = params.fetch("location_id")
     @photo.caption = params.fetch("caption")
-    @photo.image = params.fetch("image")
+    @photo.image = params.fetch("image") if params.key?("image")
 
     if @photo.valid?
       @photo.save
@@ -65,7 +65,7 @@ class PhotosController < ApplicationController
     @photo.likes_count = params.fetch("likes_count")
     @photo.location_id = params.fetch("location_id")
     @photo.caption = params.fetch("caption")
-    @photo.image = params.fetch("image")
+    @photo.image = params.fetch("image") if params.key?("image")
 
     if @photo.valid?
       @photo.save
@@ -90,7 +90,7 @@ class PhotosController < ApplicationController
     @photo.likes_count = params.fetch("likes_count")
     @photo.location_id = params.fetch("location_id")
     @photo.caption = params.fetch("caption")
-    @photo.image = params.fetch("image")
+    @photo.image = params.fetch("image") if params.key?("image")
 
     if @photo.valid?
       @photo.save

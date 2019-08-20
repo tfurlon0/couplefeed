@@ -22,7 +22,7 @@ class CheckInsController < ApplicationController
 
     @check_in.owner_id = params.fetch("owner_id")
     @check_in.location_id = params.fetch("location_id")
-    @check_in.image = params.fetch("image")
+    @check_in.image = params.fetch("image") if params.key?("image")
     @check_in.caption = params.fetch("caption")
 
     if @check_in.valid?
@@ -39,7 +39,7 @@ class CheckInsController < ApplicationController
 
     @check_in.owner_id = params.fetch("owner_id")
     @check_in.location_id = params.fetch("location_id")
-    @check_in.image = params.fetch("image")
+    @check_in.image = params.fetch("image") if params.key?("image")
     @check_in.caption = params.fetch("caption")
 
     if @check_in.valid?
@@ -56,7 +56,7 @@ class CheckInsController < ApplicationController
 
     @check_in.owner_id = params.fetch("owner_id")
     @check_in.location_id = params.fetch("location_id")
-    @check_in.image = params.fetch("image")
+    @check_in.image = params.fetch("image") if params.key?("image")
     @check_in.caption = params.fetch("caption")
 
     if @check_in.valid?
@@ -79,7 +79,7 @@ class CheckInsController < ApplicationController
 
     @check_in.owner_id = params.fetch("owner_id")
     @check_in.location_id = params.fetch("location_id")
-    @check_in.image = params.fetch("image")
+    @check_in.image = params.fetch("image") if params.key?("image")
     @check_in.caption = params.fetch("caption")
 
     if @check_in.valid?

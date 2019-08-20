@@ -25,7 +25,7 @@ class LocationsController < ApplicationController
     @location = Location.new
 
     @location.address = params.fetch("address")
-    @location.image = params.fetch("image")
+    @location.image = params.fetch("image") if params.key?("image")
     @location.bio = params.fetch("bio")
 
     if @location.valid?
@@ -47,7 +47,7 @@ class LocationsController < ApplicationController
     @location = Location.find(params.fetch("id_to_modify"))
 
     @location.address = params.fetch("address")
-    @location.image = params.fetch("image")
+    @location.image = params.fetch("image") if params.key?("image")
     @location.bio = params.fetch("bio")
 
     if @location.valid?

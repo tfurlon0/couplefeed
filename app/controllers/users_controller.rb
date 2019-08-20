@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     @user.email = params.fetch("email")
     @user.username = params.fetch("username")
     @user.password_digest = params.fetch("password_digest")
-    @user.image = params.fetch("image")
+    @user.image = params.fetch("image") if params.key?("image")
     @user.bio = params.fetch("bio")
 
     if @user.valid?
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     @user.email = params.fetch("email")
     @user.username = params.fetch("username")
     @user.password_digest = params.fetch("password_digest")
-    @user.image = params.fetch("image")
+    @user.image = params.fetch("image") if params.key?("image")
     @user.bio = params.fetch("bio")
 
     if @user.valid?
