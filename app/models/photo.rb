@@ -1,6 +1,10 @@
 class Photo < ApplicationRecord
   # Direct associations
 
+  belongs_to :location,
+             :required => false,
+             :counter_cache => true
+
   has_many   :likes,
              :dependent => :destroy
 
