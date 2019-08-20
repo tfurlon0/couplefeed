@@ -1,6 +1,9 @@
 class Location < ApplicationRecord
   # Direct associations
 
+  has_many   :likes,
+             :dependent => :nullify
+
   has_many   :comments,
              :dependent => :nullify
 
