@@ -1,0 +1,91 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Check in #<%= @check_in.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/check_ins" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <!-- Edit link check_in start -->
+      <div class="col">
+        <a href="/check_ins/<%= @check_in.id %>/edit" class="btn btn-block btn-outline-secondary">
+          Edit check in
+        </a>
+      </div>
+      <!-- Edit link check_in end -->
+
+      <!-- Delete link check_in start -->
+      <div class="col">
+        <a href="/delete_check_in/<%= @check_in.id %>" class="btn btn-block btn-outline-secondary">
+          Delete check in
+        </a>
+      </div>
+      <!-- Delete link check_in end -->
+    </div>
+
+    <dl>
+      <dt>
+        Owner
+      </dt>
+      <!-- Display owner_id start -->
+      <dd>
+        <%= @check_in.owner_id %>
+      </dd>
+      <!-- Display owner_id end -->
+
+      <dt>
+        Location
+      </dt>
+      <!-- Display location_id start -->
+      <dd>
+        <%= @check_in.location_id %>
+      </dd>
+      <!-- Display location_id end -->
+
+      <dt>
+        Image
+      </dt>
+      <!-- Display image start -->
+      <dd>
+        <%= @check_in.image %>
+      </dd>
+      <!-- Display image end -->
+
+      <dt>
+        Caption
+      </dt>
+      <!-- Display caption start -->
+      <dd>
+        <%= @check_in.caption %>
+      </dd>
+      <!-- Display caption end -->
+
+      <dt>
+        Created at
+      </dt>
+      <!-- Display created_at start -->
+      <dd>
+        <%= time_ago_in_words(@check_in.created_at) %> ago
+      </dd>
+      <!-- Display created_at end -->
+
+      <dt>
+        Updated at
+      </dt>
+      <!-- Display updated_at start -->
+      <dd>
+        <%= time_ago_in_words(@check_in.updated_at) %> ago
+      </dd>
+      <!-- Display updated_at end -->
+    </dl>
+  </div>
+</div>
+
+<!-- Show Page Customization starts -->
+
+<!-- Show Page Customization end -->
