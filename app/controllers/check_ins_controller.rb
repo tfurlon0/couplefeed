@@ -1,6 +1,7 @@
 class CheckInsController < ApplicationController
   def index
-    @check_ins = CheckIn.page(params[:page]).per(10)
+    @q = CheckIn.ransack(params[:q])
+    @check_ins = @q.result(:distinct => true).includes(:owner, :location).page(params[:page]).per(10)
 
     render("check_in_templates/index.html.erb")
   end
