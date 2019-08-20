@@ -1,47 +1,30 @@
-<!-- Form check_in start -->
 <form action="/create_check_in" method="post" enctype="multipart/form-data">
-<!-- Form check_in end -->
 
-  <!-- Label and input for owner_id start -->
-  <!-- Input for owner_id start -->
   <input type="hidden" name="owner_id" value="<%= @user.id %>">
-  <!-- Input for owner_id end -->
 
-  <!-- Label and input for location_id start -->
   <div class="form-group">
     <label for="location_id">
       Location
     </label>
 
-    <!-- Input for location_id start -->
     <%= select_tag(:location_id, options_from_collection_for_select(Location.all, :id, :created_at, @check_in.location_id), :class => "form-control") %>
-    <!-- Input for location_id end -->
   </div>
-  <!-- Label and input for location_id end -->
 
-  <!-- Label and input for image start -->
   <div class="form-group">
     <label for="image">
       Image
     </label>
 
-    <!-- Input for image start -->
     <input type="file" id="image" name="image" class="form-control">
-    <!-- Input for image end -->
   </div>
-  <!-- Label and input for image end -->
 
-  <!-- Label and input for caption start -->
   <div class="form-group">
     <label for="caption">
       Caption
     </label>
 
-    <!-- Input for caption start -->
     <textarea id="caption" name="caption" class="form-control" rows="3"><%= @check_in.caption %></textarea>
-    <!-- Input for caption end -->
   </div>
-  <!-- Label and input for caption end -->
 
   <button class="btn btn-block btn-outline-secondary">
     Create check in

@@ -1,4 +1,3 @@
-<!-- Validation failure messages -->
 <% if @check_in.errors.any? %>
   <% @check_in.errors.full_messages.each do |message| %>
     <div class="alert">
@@ -13,58 +12,40 @@
 
 <hr>
 
-<!-- Form check_in start -->
 <form action="/update_check_in/<%= @check_in.id %>" method="post" enctype="multipart/form-data">
-<!-- Form check_in end -->
 
-  <!-- Label and input for owner_id start -->
   <div class="form-group">
     <label for="owner_id">
       Owner
     </label>
 
-    <!-- Input for owner_id start -->
     <%= select_tag(:owner_id, options_from_collection_for_select(User.all, :id, :email, @check_in.owner_id), :class => "form-control") %>
-    <!-- Input for owner_id end -->
   </div>
-  <!-- Label and input for owner_id end -->
 
-  <!-- Label and input for location_id start -->
   <div class="form-group">
     <label for="location_id">
       Location
     </label>
 
-    <!-- Input for location_id start -->
     <%= select_tag(:location_id, options_from_collection_for_select(Location.all, :id, :created_at, @check_in.location_id), :class => "form-control") %>
-    <!-- Input for location_id end -->
   </div>
-  <!-- Label and input for location_id end -->
 
-  <!-- Label and input for image start -->
   <div class="form-group">
     <label for="image">
       Image
     </label>
 
-    <!-- Input for image start -->
     <%= cl_image_tag(@check_in.image.to_s, :width => 90, :height => 90, :crop => :thumb) %>
     <input type="file" id="image" name="image" class="form-control">
-    <!-- Input for image end -->
   </div>
-  <!-- Label and input for image end -->
 
-  <!-- Label and input for caption start -->
   <div class="form-group">
     <label for="caption">
       Caption
     </label>
 
-    <!-- Input for caption start -->
     <textarea id="caption" name="caption" class="form-control" rows="3"><%= @check_in.caption %></textarea>
-    <!-- Input for caption end -->
   </div>
-  <!-- Label and input for caption end -->
 
   <button class="btn btn-block btn-outline-secondary">
     Update check in

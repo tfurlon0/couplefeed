@@ -1,47 +1,30 @@
-<!-- Form comment start -->
 <form action="/create_comment_from_location" method="post">
-<!-- Form comment end -->
 
-  <!-- Label and input for text start -->
   <div class="form-group">
     <label for="text">
       Text
     </label>
 
-    <!-- Input for text start -->
     <textarea id="text" name="text" class="form-control" rows="3"><%= @comment.text %></textarea>
-    <!-- Input for text end -->
   </div>
-  <!-- Label and input for text end -->
 
-  <!-- Label and input for author_id start -->
   <div class="form-group">
     <label for="author_id">
       Author
     </label>
 
-    <!-- Input for author_id start -->
     <%= select_tag(:author_id, options_from_collection_for_select(User.all, :id, :email, @comment.author_id), :class => "form-control") %>
-    <!-- Input for author_id end -->
   </div>
-  <!-- Label and input for author_id end -->
 
-  <!-- Label and input for location_id start -->
-  <!-- Input for location_id start -->
   <input type="hidden" name="location_id" value="<%= @location.id %>">
-  <!-- Input for location_id end -->
 
-  <!-- Label and input for photo_id start -->
   <div class="form-group">
     <label for="photo_id">
       Photo
     </label>
 
-    <!-- Input for photo_id start -->
     <%= select_tag(:photo_id, options_from_collection_for_select(Photo.all, :id, :author_id, @comment.photo_id), :class => "form-control") %>
-    <!-- Input for photo_id end -->
   </div>
-  <!-- Label and input for photo_id end -->
 
   <button class="btn btn-block btn-outline-secondary">
     Create comment

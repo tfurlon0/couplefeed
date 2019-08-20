@@ -1,4 +1,3 @@
-<!-- Validation failure messages -->
 <% if @like.present? %>
   <% if @like.errors.any? %>
     <% @like.errors.full_messages.each do |message| %>
@@ -16,45 +15,31 @@
 
 <hr>
 
-<!-- Form like start -->
 <form action="/create_like" method="post">
-<!-- Form like end -->
 
-  <!-- Label and input for author_id start -->
   <div class="form-group">
     <label for="author_id">
       Author
     </label>
 
-    <!-- Input for author_id start -->
     <%= select_tag(:author_id, options_from_collection_for_select(User.all, :id, :email, @like.author_id), :class => "form-control") %>
-    <!-- Input for author_id end -->
   </div>
-  <!-- Label and input for author_id end -->
 
-  <!-- Label and input for photo_id start -->
   <div class="form-group">
     <label for="photo_id">
       Photo
     </label>
 
-    <!-- Input for photo_id start -->
     <%= select_tag(:photo_id, options_from_collection_for_select(Photo.all, :id, :author_id, @like.photo_id), :class => "form-control") %>
-    <!-- Input for photo_id end -->
   </div>
-  <!-- Label and input for photo_id end -->
 
-  <!-- Label and input for location_id start -->
   <div class="form-group">
     <label for="location_id">
       Location
     </label>
 
-    <!-- Input for location_id start -->
     <%= select_tag(:location_id, options_from_collection_for_select(Location.all, :id, :created_at, @like.location_id), :class => "form-control") %>
-    <!-- Input for location_id end -->
   </div>
-  <!-- Label and input for location_id end -->
 
   <button class="btn btn-block btn-outline-secondary">
     Create like
