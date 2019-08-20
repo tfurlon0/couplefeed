@@ -66,13 +66,21 @@
 
         <!-- Display check_in.owner_id start -->
         <td>
-          <%= check_in.owner.email %>
+          <% if check_in.owner.present? %>
+            <a href="/users/<%= check_in.owner.id %>">
+              <%= check_in.owner.email %>
+            </a>
+          <% end %>
         </td>
         <!-- Display check_in.owner_id end -->
 
         <!-- Display check_in.location_id start -->
         <td>
-          <%= check_in.location.created_at %>
+          <% if check_in.location.present? %>
+            <a href="/locations/<%= check_in.location.id %>">
+              <%= check_in.location.created_at %>
+            </a>
+          <% end %>
         </td>
         <!-- Display check_in.location_id end -->
 

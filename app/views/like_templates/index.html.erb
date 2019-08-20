@@ -62,19 +62,31 @@
 
         <!-- Display like.author_id start -->
         <td>
-          <%= like.author.email %>
+          <% if like.author.present? %>
+            <a href="/users/<%= like.author.id %>">
+              <%= like.author.email %>
+            </a>
+          <% end %>
         </td>
         <!-- Display like.author_id end -->
 
         <!-- Display like.photo_id start -->
         <td>
-          <%= like.photo.author_id %>
+          <% if like.photo.present? %>
+            <a href="/photos/<%= like.photo.id %>">
+              <%= like.photo.author_id %>
+            </a>
+          <% end %>
         </td>
         <!-- Display like.photo_id end -->
 
         <!-- Display like.location_id start -->
         <td>
-          <%= like.location.created_at %>
+          <% if like.location.present? %>
+            <a href="/locations/<%= like.location.id %>">
+              <%= like.location.created_at %>
+            </a>
+          <% end %>
         </td>
         <!-- Display like.location_id end -->
 

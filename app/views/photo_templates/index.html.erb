@@ -74,7 +74,11 @@
 
         <!-- Display photo.author_id start -->
         <td>
-          <%= photo.author.email %>
+          <% if photo.author.present? %>
+            <a href="/users/<%= photo.author.id %>">
+              <%= photo.author.email %>
+            </a>
+          <% end %>
         </td>
         <!-- Display photo.author_id end -->
 
@@ -92,7 +96,11 @@
 
         <!-- Display photo.location_id start -->
         <td>
-          <%= photo.location.created_at %>
+          <% if photo.location.present? %>
+            <a href="/locations/<%= photo.location.id %>">
+              <%= photo.location.created_at %>
+            </a>
+          <% end %>
         </td>
         <!-- Display photo.location_id end -->
 

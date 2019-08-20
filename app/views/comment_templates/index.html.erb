@@ -72,19 +72,31 @@
 
         <!-- Display comment.author_id start -->
         <td>
-          <%= comment.author.email %>
+          <% if comment.author.present? %>
+            <a href="/users/<%= comment.author.id %>">
+              <%= comment.author.email %>
+            </a>
+          <% end %>
         </td>
         <!-- Display comment.author_id end -->
 
         <!-- Display comment.location_id start -->
         <td>
-          <%= comment.location.created_at %>
+          <% if comment.location.present? %>
+            <a href="/locations/<%= comment.location.id %>">
+              <%= comment.location.created_at %>
+            </a>
+          <% end %>
         </td>
         <!-- Display comment.location_id end -->
 
         <!-- Display comment.photo_id start -->
         <td>
-          <%= comment.photo.author_id %>
+          <% if comment.photo.present? %>
+            <a href="/photos/<%= comment.photo.id %>">
+              <%= comment.photo.author_id %>
+            </a>
+          <% end %>
         </td>
         <!-- Display comment.photo_id end -->
 

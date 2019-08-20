@@ -34,7 +34,11 @@
       </dt>
       <!-- Display owner_id start -->
       <dd>
-        <%= @check_in.owner_id %>
+        <% if @check_in.owner.present? %>
+          <a href="/users/<%= @check_in.owner_id %>">
+            <%= @check_in.owner.email %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display owner_id end -->
 
@@ -43,7 +47,11 @@
       </dt>
       <!-- Display location_id start -->
       <dd>
-        <%= @check_in.location_id %>
+        <% if @check_in.location.present? %>
+          <a href="/locations/<%= @check_in.location_id %>">
+            <%= @check_in.location.created_at %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display location_id end -->
 
